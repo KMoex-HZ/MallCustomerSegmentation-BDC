@@ -1,4 +1,4 @@
-# Proyek Analisis Segmentasi Pelanggan (Mall Customer Segmentation)
+# 📊 Proyek Analisis Segmentasi Pelanggan (Mall Customer Segmentation)
 
 <div align="center">
   <img src="output.png" width="500" alt="K-Means Clustering Visualization">
