@@ -101,6 +101,6 @@ Untuk menjalankan notebook ini di mesin lokal Anda:
 5.  Jalankan setiap sel di notebook secara berurutan.
 
 ---
-**Dibuat oleh:** Caelan Zhou
+**Dibuat oleh:** Khairunnisa Maharani
 
 **Tanggal:** 26 Juli 2025
