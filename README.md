@@ -1,7 +1,7 @@
 # Proyek Analisis Segmentasi Pelanggan (Mall Customer Segmentation)
 
-![K-Means Clustering Visualization](output.png)
-*Ganti URL gambar placeholder di atas dengan salah satu gambar scatter plot cluster Anda.*
+[![K-Means Clustering Visualization](https://github.com/KMoex-HZ/MallCustomerSegmentation-BDC/blob/main/output.png?raw=true)](https://github.com/KMoex-HZ/MallCustomerSegmentation-BDC/blob/main/output.png?raw=true)
+<img src="output.png" width="300" alt="K-Means Clustering Visualization">
 
 ## Pendahuluan
 
