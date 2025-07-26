@@ -1,6 +1,8 @@
 # Proyek Analisis Segmentasi Pelanggan (Mall Customer Segmentation)
 
-<img src="output.png" width="500" alt="K-Means Clustering Visualization">
+<div align="center">
+  <img src="output.png" width="500" alt="K-Means Clustering Visualization">
+</div>
 
 ## Pendahuluan
 
