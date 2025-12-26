@@ -1,106 +1,118 @@
-# 📊 Proyek Analisis Segmentasi Pelanggan (Mall Customer Segmentation)
+# 📊 Customer Segmentation Analysis Project (Mall Customer Segmentation)
 
 <div align="center">
   <img src="output.png" width="500" alt="K-Means Clustering Visualization">
 </div>
 
-## Pendahuluan
+## Introduction
 
-Proyek ini merupakan bagian dari studi kasus analisis data untuk mengidentifikasi segmen-segmen pelanggan yang berbeda dalam dataset "Mall Customer". Dengan memahami karakteristik unik dari setiap segmen, bisnis dapat mengembangkan strategi pemasaran yang lebih tepat sasaran dan personal, meningkatkan kepuasan pelanggan, serta memaksimalkan keuntungan.
+This project is part of a data analysis case study aimed at identifying distinct customer segments within the **Mall Customer** dataset. By understanding the unique characteristics of each segment, businesses can develop more targeted and personalized marketing strategies, improve customer satisfaction, and maximize profits.
 
-Dalam proyek ini, saya menerapkan berbagai teknik dasar hingga menengah dalam ilmu data, termasuk pemuatan data, eksplorasi data, normalisasi fitur, dan algoritma K-Means Clustering untuk segmentasi.
+In this project, I applied various basic to intermediate data science techniques, including data loading, exploratory data analysis, feature normalization, and the K-Means Clustering algorithm for segmentation.
 
 ## Dataset
 
-Dataset yang digunakan adalah `Mall Customer Dataset` yang berisi informasi dasar tentang pelanggan pusat perbelanjaan, termasuk:
-- `CustomerID`: ID unik pelanggan
-- `Gender`: Jenis kelamin pelanggan
-- `Age`: Usia pelanggan
-- `Annual Income (k$)`: Pendapatan tahunan pelanggan (dalam ribuan dolar)
-- `Spending Score (1-100)`: Skor belanja yang ditetapkan oleh pusat perbelanjaan berdasarkan perilaku belanja pelanggan (skala 1-100)
+The dataset used is the **Mall Customer Dataset**, which contains basic information about shopping mall customers, including:
 
-## Tujuan Proyek
+* `CustomerID`: Unique customer ID
+* `Gender`: Customer gender
+* `Age`: Customer age
+* `Annual Income (k$)`: Customer annual income (in thousands of dollars)
+* `Spending Score (1-100)`: Spending score assigned by the mall based on customer purchasing behavior (scale 1–100)
 
-1.  Memuat dan menjelajahi dataset pelanggan.
-2.  Melakukan pra-pemrosesan data dasar (misalnya, memeriksa nilai yang hilang, normalisasi fitur).
-3.  Menemukan jumlah cluster optimal menggunakan Metode Elbow.
-4.  Menerapkan algoritma K-Means Clustering untuk mengelompokkan pelanggan.
-5.  Menganalisis dan memahami karakteristik setiap segmen pelanggan yang terbentuk.
-6.  Memvisualisasikan hasil segmentasi untuk mendapatkan wawasan yang lebih baik.
+## Project Objectives
 
-## Teknologi / Library yang Digunakan
+1. Load and explore the customer dataset.
+2. Perform basic data preprocessing (e.g., checking for missing values, feature normalization).
+3. Determine the optimal number of clusters using the Elbow Method.
+4. Apply the K-Means Clustering algorithm to segment customers.
+5. Analyze and understand the characteristics of each resulting customer segment.
+6. Visualize the segmentation results to gain deeper insights.
+
+## Technologies / Libraries Used
 
 * **Python**
-* **Pandas**: Untuk manipulasi dan analisis data.
-* **Numpy**: Untuk operasi numerik.
-* **Scikit-learn (sklearn)**: Untuk normalisasi data (`MinMaxScaler`) dan algoritma clustering (`KMeans`).
-* **Matplotlib**: Untuk membuat visualisasi data.
-* **Seaborn**: Untuk membuat visualisasi data yang lebih menarik.
+* **Pandas**: For data manipulation and analysis.
+* **NumPy**: For numerical operations.
+* **Scikit-learn (sklearn)**: For data normalization (`MinMaxScaler`) and clustering algorithms (`KMeans`).
+* **Matplotlib**: For data visualization.
+* **Seaborn**: For enhanced and more attractive data visualizations.
 
-## Langkah-langkah Analisis
+## Analysis Workflow
 
-Proyek ini mengikuti alur kerja analisis data standar:
+This project follows a standard data analysis workflow:
 
-1.  **Pemuatan Data**: Memuat dataset `data.csv` menggunakan Pandas.
-2.  **Eksplorasi Data Awal**:
-    * Melihat informasi umum dataset (`.info()`).
-    * Memeriksa nilai yang hilang (`.isnull().sum()`).
-    * Menghasilkan statistik deskriptif (`.describe()`).
-    * Memvisualisasikan distribusi usia (`histogram`) dan gender (`pie chart`).
-3.  **Normalisasi Data**: Menerapkan `MinMaxScaler` pada fitur numerik (`Age`, `Annual Income (k$)`, `Spending Score (1-100)`) untuk memastikan semua fitur berada dalam skala yang sama, penting untuk algoritma berbasis jarak seperti K-Means.
-4.  **Menentukan Jumlah Cluster Optimal (Metode Elbow)**:
-    * Mengulang algoritma K-Means untuk `k` dari 1 hingga 10.
-    * Merekam nilai *inertia* (Within-Cluster Sum of of Squares) untuk setiap `k`.
-    * Memplot *inertia* vs. `k` untuk mengidentifikasi titik "siku" yang menunjukkan jumlah cluster optimal. Dalam analisis ini, **k=5** dipilih sebagai jumlah cluster optimal.
-5.  **Segmentasi Pelanggan dengan K-Means**:
-    * Menerapkan algoritma K-Means dengan `n_clusters=5`.
-    * Menetapkan label cluster yang dihasilkan kembali ke DataFrame asli.
-6.  **Profiling Cluster**:
-    * Menganalisis karakteristik setiap cluster dengan menghitung rata-rata fitur numerik (`Age`, `Annual Income (k$)`, `Spending Score (1-100)`) untuk setiap cluster.
-    * Melihat distribusi gender di setiap cluster menggunakan tabel silang.
-    * Memberikan interpretasi dan penamaan pada setiap segmen pelanggan (misalnya, 'Pelanggan Prioritas', 'Pelanggan Hemat', dll.).
-7.  **Visualisasi Cluster**: Membuat scatter plot untuk memvisualisasikan segmen-segmen pelanggan berdasarkan kombinasi fitur (`Annual Income` vs `Spending Score` dan `Age` vs `Spending Score`), dengan titik-titik diwarnai sesuai label cluster mereka.
+1. **Data Loading**: Load the `data.csv` dataset using Pandas.
+2. **Initial Data Exploration**:
 
-## Hasil dan Wawasan
+   * View general dataset information (`.info()`).
+   * Check for missing values (`.isnull().sum()`).
+   * Generate descriptive statistics (`.describe()`).
+   * Visualize age distribution (`histogram`) and gender distribution (`pie chart`).
+3. **Data Normalization**: Apply `MinMaxScaler` to numerical features (`Age`, `Annual Income (k$)`, `Spending Score (1-100)`) to ensure all features are on the same scale, which is crucial for distance-based algorithms like K-Means.
+4. **Determining the Optimal Number of Clusters (Elbow Method)**:
 
-Analisis ini berhasil mengidentifikasi 5 segmen pelanggan yang berbeda dengan karakteristik unik:
+   * Run the K-Means algorithm for `k` values from 1 to 10.
+   * Record the *inertia* (Within-Cluster Sum of Squares) for each `k`.
+   * Plot *inertia* vs. `k` to identify the “elbow point” indicating the optimal number of clusters. In this analysis, **k = 5** was selected as the optimal number of clusters.
+5. **Customer Segmentation with K-Means**:
 
-* **Cluster 0 (Pelanggan Menengah)**: Usia paruh baya, pendapatan dan skor belanja sedang.
-* **Cluster 1 (Pelanggan Prioritas)**: Usia muda-paruh baya, pendapatan tinggi, skor belanja tinggi.
-* **Cluster 2 (Pelanggan Hemat)**: Usia paruh baya, pendapatan dan skor belanja rendah.
-* **Cluster 3 (Pelanggan Berpotensi)**: Usia muda-paruh baya, pendapatan tinggi, skor belanja rendah (potensi besar untuk digarap).
-* **Cluster 4 (Pelanggan Muda & Impulsif)**: Usia muda, pendapatan sedang, skor belanja tinggi.
+   * Apply the K-Means algorithm with `n_clusters = 5`.
+   * Assign the resulting cluster labels back to the original DataFrame.
+6. **Cluster Profiling**:
 
-Wawasan ini dapat digunakan oleh tim pemasaran untuk:
-* Merancang kampanye promosi yang ditargetkan untuk setiap segmen.
-* Mengembangkan produk atau layanan yang sesuai dengan kebutuhan spesifik masing-masing kelompok.
-* Meningkatkan retensi pelanggan dengan memahami preferensi mereka.
+   * Analyze the characteristics of each cluster by calculating the mean of numerical features (`Age`, `Annual Income (k$)`, `Spending Score (1-100)`) for each cluster.
+   * Examine gender distribution in each cluster using cross-tabulation.
+   * Provide interpretations and assign meaningful names to each customer segment (e.g., “Priority Customers,” “Budget Customers,” etc.).
+7. **Cluster Visualization**: Create scatter plots to visualize customer segments based on feature combinations (`Annual Income` vs. `Spending Score` and `Age` vs. `Spending Score`), with points colored according to their cluster labels.
 
-## Cara Menjalankan Proyek Ini
+## Results and Insights
 
-Untuk menjalankan notebook ini di mesin lokal Anda:
+This analysis successfully identified **five distinct customer segments** with unique characteristics:
 
-1.  **Clone repositori ini:**
-    ```bash
-    git clone [https://github.com/YourUsername/YourRepoName.git](https://github.com/YourUsername/YourRepoName.git)
-    ```
-    *Ganti `YourUsername` dan `YourRepoName` dengan username dan nama repositori Anda.*
-2.  **Masuk ke direktori proyek:**
-    ```bash
-    cd YourRepoName
-    ```
-3.  **Pastikan Anda memiliki Python dan library yang diperlukan terinstal.** Anda bisa menginstal library yang dibutuhkan dengan:
-    ```bash
-    pip install pandas numpy scikit-learn matplotlib seaborn
-    ```
-4.  **Buka file Jupyter Notebook** (`nama_file_notebook_anda.ipynb`) menggunakan Jupyter Lab atau Jupyter Notebook:
-    ```bash
-    jupyter notebook
-    ```
-    *Ganti `nama_file_notebook_anda.ipynb` dengan nama file notebook Anda (misal: `mall_customer_segmentation.ipynb`).*
-5.  Jalankan setiap sel di notebook secara berurutan.
+* **Cluster 0 (Middle Customers)**: Middle-aged customers with moderate income and spending scores.
+* **Cluster 1 (Priority Customers)**: Young to middle-aged customers with high income and high spending scores.
+* **Cluster 2 (Budget Customers)**: Middle-aged customers with low income and low spending scores.
+* **Cluster 3 (Potential Customers)**: Young to middle-aged customers with high income but low spending scores (high potential for targeted marketing).
+* **Cluster 4 (Young & Impulsive Customers)**: Young customers with moderate income and high spending scores.
+
+These insights can be leveraged by marketing teams to:
+
+* Design targeted promotional campaigns for each segment.
+* Develop products or services tailored to the specific needs of each group.
+* Improve customer retention by better understanding customer preferences.
+
+## How to Run This Project
+
+To run this notebook on your local machine:
+
+1. **Clone this repository:**
+
+   ```bash
+   git clone https://github.com/YourUsername/YourRepoName.git
+   ```
+
+   *Replace `YourUsername` and `YourRepoName` with your GitHub username and repository name.*
+2. **Navigate to the project directory:**
+
+   ```bash
+   cd YourRepoName
+   ```
+3. **Ensure Python and the required libraries are installed.** Install dependencies using:
+
+   ```bash
+   pip install pandas numpy scikit-learn matplotlib seaborn
+   ```
+4. **Open the Jupyter Notebook** (`your_notebook_filename.ipynb`) using Jupyter Lab or Jupyter Notebook:
+
+   ```bash
+   jupyter notebook
+   ```
+
+   *Replace `your_notebook_filename.ipynb` with your actual notebook file name (e.g., `mall_customer_segmentation.ipynb`).*
+5. Run each cell in the notebook sequentially.
 
 ---
-**Dibuat oleh:** Khairunnisa Maharani
 
-**Tanggal:** 26 Juli 2025
+**Created by:** Khairunnisa Maharani
+**Date:** July 26, 2025
